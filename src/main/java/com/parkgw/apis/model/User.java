@@ -2,12 +2,10 @@ package com.parkgw.apis.model;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Getter
-@NoArgsConstructor
 @Entity
 public class User {
     @Id

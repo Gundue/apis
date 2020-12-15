@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    private int user_Id;
 
     @Column(length = 40, nullable = false)
     private String email;
@@ -35,8 +35,8 @@ public class User {
     @Override
     public String toString() {
         return String.format(
-                "User[user_id=%d, email='%s', name='%s', phone='%s']",
-                this.user_id, this.email, this.name, this.phone
+                "User[user_Id=%d, email='%s', name='%s', phone='%s']",
+                this.user_Id, this.email, this.name, this.phone
         );
     }
 }

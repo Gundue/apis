@@ -1,9 +1,13 @@
 package com.parkgw.apis.service;
 
+import java.util.List;
 import com.parkgw.apis.model.User;
 import com.parkgw.apis.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 @Controller
 public class UserService {
@@ -14,10 +18,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public void findAll() {
-        for (User user : this.userRepository.findAll()) {
-            System.out.println(user);
-        }
+    public User find(int userId) throws Exception {
+        Optional<User> searchedUser = this.userRepository.findById(userId);
+        return searchedUser.orElseThrow(() -> new Exception("해당유저를 찾지 못하였습니다"));
+    }
+
+    public List<User> findAll() {
+        return this.userRepository.findAll();
     }
 
     public void initializeUsers() {
